@@ -1,0 +1,22 @@
+{
+  "name": "@sprinkly/tokens",
+  "description": "Shared design system tokens",
+  "version": "0.0.1",
+  "main": "dist/sprinkly.tokens.cjs.js",
+  "module": "dist/sprinkly.tokens.es.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "dev": "concurrently npm:dev:*",
+    "dev:js": "vite build --watch",
+    "dev:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types --watch",
+    "build": "concurrently npm:build:*",
+    "build:js": "vite build",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.4"
+  },
+  "peerDependencies": {}
+}

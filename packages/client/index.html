@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      // ((d)=>{try{var p=localStorage.getItem('sprinkly-theme');if(p==d||(p!='light'&&matchMedia('(prefers-color-scheme:dark)').matches)) document.documentElement.classList.add(d)}catch(e){}})('dark')
+      (() => {
+        try {
+          const sprinklyColorScheme = localStorage.getItem('sprinkly-theme')
+
+          if (!sprinklyColorScheme) {
+            const colorScheme = matchMedia('(prefers-color-scheme: dark)').matches
+                  ? 'dark'
+                  : 'light'
+
+            document.documentElement.classList.add(colorScheme)
+            localStorage.setItem('sprinkly-theme', colorScheme)
+          } else {
+            document.documentElement.classList.add(sprinklyColorScheme)
+          }
+        } catch(e) {}
+      })()
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/index.css">
+    <title>Sprinkly</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

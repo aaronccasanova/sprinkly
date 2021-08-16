@@ -1,0 +1,27 @@
+{
+  "name": "sprinkly",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "initialize": "npm install && npm run clean && lerna bootstrap --hoist",
+    "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
+    "refresh": "lerna bootstrap --hoist",
+    "build": "lerna run build --stream",
+    "build:components": "lerna run build --stream --scope=@sprinkly/components",
+    "dev:components": "lerna run dev --stream --scope=@sprinkly/components",
+    "dev:tokens": "lerna run dev --stream --scope=@sprinkly/components",
+    "dev:client": "lerna run dev --stream --scope=@sprinkly/client",
+    "dev:libs": "lerna run dev --parallel --stream --scope=@sprinkly/{tokens,components}"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.12",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "deepmerge": "^4.2.2",
+    "lerna": "^4.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.4"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
